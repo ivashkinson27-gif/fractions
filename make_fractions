@@ -1,0 +1,8 @@
+all: programm
+	./programm
+programm: fractions.o
+	g++ fractions.o -o programm
+fractions.o: fractions.cpp fractions.hpp
+	g++ -c fractions.cpp
+clean:
+	rm -r *.o
