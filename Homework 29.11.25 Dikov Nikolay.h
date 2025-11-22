@@ -12,7 +12,6 @@ class Rational_number {
     int64_t den;
 public:
     void normalize();
-    void showinfo() const;
 
     Rational_number();
     explicit Rational_number(int64_t s);
@@ -37,6 +36,8 @@ public:
     bool operator<=(const Rational_number& other) const;
     bool operator>(const Rational_number& other) const;
     bool operator>=(const Rational_number& other) const;
+    friend std::ostream& operator<<(std::ostream &os, const Rational_number &other);
+    friend std::istream& operator>>(std::istream &is, Rational_number &other);
 };
 
 #endif
