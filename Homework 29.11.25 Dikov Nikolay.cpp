@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
-#include "Homework 29.11.25.h"
+#include "Homework 29.11.25 Dikov Nikolay.h"
 using namespace std;
 
 int64_t gcd(const int64_t a, const int64_t b) {
@@ -112,3 +112,4 @@ int main() {
     Rational_number r3 = r.operator*(r2);
     r3.showinfo();
 }
+
