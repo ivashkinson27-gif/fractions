@@ -27,4 +27,10 @@ public:
 private:
     void Reduction();
 }
+bool operator== (Fraction a, Fraction b);
+bool operator!= (Fraction a, Fraction b);
+bool operator> (Fraction a, Fraction b);
+bool operator< (Fraction a, Fraction b);
+bool operator<= (Fraction a, Fraction b);
+bool operator>= (Fraction a, Fraction b);
 #endif

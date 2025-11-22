@@ -32,7 +32,6 @@ public:
     operator double() const {
         return (double)numerator / double(denominator);
     }
-    Fraction(const Fraction& f): numerator(f.numerator), denominator(f.denominator) {}
     friend string str(const Fraction& f);
     friend std::ostream & operator <<(std::ostream & os, Fraction const & n);
     Fraction& operator+= (const Fraction& other){
@@ -68,7 +67,8 @@ public:
     friend Fraction operator* (Fraction a, Fraction const b);
     friend Fraction operator/ (Fraction a, Fraction const b);
     friend Fraction operator- (Fraction a, Fraction const b);
-
+    ~Fraction() {}
+    Fraction(const Fraction& f): numerator(f.numerator), denominator(f.denominator) {}
 private:
     void Reduction(){
         int d = GCD(numerator, denominator);
@@ -99,7 +99,42 @@ Fraction operator/ (Fraction a, Fraction const b){
 Fraction operator- (Fraction a, Fraction const b){
     return a -= b;
 }
-
+bool operator==(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 == n2;
+}
+bool operator!=(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 != n2;
+}
+bool operator>(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 > n2;
+}
+bool operator<(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 < n2;
+}
+bool operator<=(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 <= n2;
+}
+bool operator>=(Fraction a, Fraction b){
+    int m = LCM(a.GetDenominator(), b.GetDenominator());
+    int n1 = a.GetNumerator() * (m / a.GetDenominator());
+    int n2 = b.GetNumerator() * (m / b.GetDenominator());
+    return n1 >= n2;
+}
 int main(){
     {
     cout << GCD(4, 5) << '\n';
@@ -156,6 +191,15 @@ int main(){
     {
         Fraction a(1, 2);
         cout << -a << '\n';
+    }
+    {
+        Fraction a(1, 3);
+        Fraction b(1, 3);
+        Fraction c (2, 3);
+        cout << (a == b) << '\n';
+        cout << (a == c) << '\n';
+        cout << (a > c) << '\n';
+        cout << (a < c) << '\n';
     }
     return 0;
 }
