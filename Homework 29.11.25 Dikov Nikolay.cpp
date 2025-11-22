@@ -113,7 +113,7 @@ bool Rational_number::operator>(const Rational_number &other) const {
 bool Rational_number::operator>=(const Rational_number &other) const {
     return num*other.den >= other.num*den;
 }
-std::ostream & operator<<(std::ostream &os, const Rational_number &other){
+ostream & operator<<(ostream &os, const Rational_number &other){
     if (other.den == 1) {
         os << other.num;
     }
@@ -122,7 +122,7 @@ std::ostream & operator<<(std::ostream &os, const Rational_number &other){
     }
     return os;
 }
-std::istream & operator>>(std::istream &is, Rational_number &other){
+istream & operator>>(istream &is, Rational_number &other){
     char slash = '\0';
     is >> other.num >> slash >> other.den;
     other.normalize();
@@ -147,3 +147,4 @@ int main() {
     cin >> r4;
     cout << r4 << endl;
 }
+
