@@ -24,22 +24,22 @@ public:
     explicit operator double() const;
     std::string str() const;
 
-    // Унарный минус
+    
     Rational operator-() const;
 
-    // Арифметические операции
+   
     Rational operator+(const Rational& other) const;
     Rational operator-(const Rational& other) const;
     Rational operator*(const Rational& other) const;
     Rational operator/(const Rational& other) const;
 
-    // Составные присваивания
+    
     Rational& operator+=(const Rational& other);
     Rational& operator-=(const Rational& other);
     Rational& operator*=(const Rational& other);
     Rational& operator/=(const Rational& other);
 
-    // Операции сравнения
+    
     bool operator==(const Rational& other) const;
     bool operator!=(const Rational& other) const;
     bool operator<(const Rational& other) const;
@@ -47,5 +47,6 @@ public:
     bool operator>(const Rational& other) const;
     bool operator>=(const Rational& other) const;
 };
+
 
 #endif // RATIONAL_HPP
