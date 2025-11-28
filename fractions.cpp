@@ -2,17 +2,9 @@
 #include <string>
 #include <cstdint>
 #include <numeric> 
-#include <stdexcept>
 #include <cmath>
 #include <limits>
 
-#include <iostream>
-#include <string>
-#include <cstdint>
-#include <numeric> 
-#include <stdexcept>
-#include <cmath>
-#include <limits>
 
 class Rational {
 private:
@@ -194,6 +186,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
